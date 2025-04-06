@@ -1,21 +1,30 @@
-name: Deploy to GitHub Pages
+name: Deploy Astro Site
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # Se activa al hacer push a main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Sistema operativo del runner
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4  # Descarga tu código
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+          node-version: 20  # Versión de Node
+
+      - name: Install dependencies
+        run: npm install  # Instala paquetes
+
+      - name: Build project
+        run: npm run build  # Genera la carpeta dist/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./dist
-      - name: Deploy
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
+          publish_dir: ./dist  # Carpeta a desplegar
