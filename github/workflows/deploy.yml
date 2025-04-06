@@ -2,7 +2,7 @@ name: Deploy Astro Site
 
 on:
   push:
-    branches: [main]  # Se activa al hacer push a main
+    branches: [mmaster]  # Se activa al hacer push a main
 
 jobs:
   build-and-deploy:
