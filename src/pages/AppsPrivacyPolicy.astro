@@ -1,0 +1,121 @@
+---
+//import Welcome from '../components/Welcome.astro';
+//import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Navigation from '../components/ResponsiveMenu.astro';
+
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+
+
+
+
+	
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Astro</title>
+</head>
+<body>
+
+ 
+    
+  <Layout>
+
+  <!-- Tu contenido específico de la página de inicio aquí -->
+  
+<header>
+
+
+        <!-- Título principal -->
+        <h1>Apps Privacy Policy</h1>
+    </header>
+
+
+
+  
+
+</html>
+    <main>
+        
+        <!-- Sección de texto -->
+        <section>
+            
+            <p>
+                Pablo Lopez does not collect any information about  users.
+If you contact me, i will not give or sell your information to any third party unless required by law or authorized by you.</p>
+
+
+ </section>
+
+ <section>
+						
+
+<style>
+  .app-store-badge {
+    display: inline-block; /* Necesario para que funcione max-width */
+  }
+
+  .img {
+    width: auto; /* Mantiene la proporción original */
+    height: auto;
+    max-width: 180px; /* Tamaño ideal para desktop */
+  }
+
+  /* Para móviles */
+  @media (max-width: 768px) {
+    .img {
+      max-width: 135px; /* Un 25% más pequeño en móviles */
+    }
+  }
+
+  /* Para tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .img{
+      max-width: 160px;
+    }
+  }
+</style>
+        </section>
+
+				
+    </main>
+
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            border-bottom: 3px solid #0984e3;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin: 40px 0;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        
+    </style>
+</body>
+</Layout>
+</html>

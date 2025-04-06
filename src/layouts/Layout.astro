@@ -1,0 +1,119 @@
+---
+
+// src/layouts/Layout.astro
+import HamburgerMenu from '../components/HamburgerMenu6.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+const navLinks = [
+  { href: "/", text: "Home"},
+  { href: "/01", text: "Bluetooth MIDI Controller Pro"},
+  { href: "/02", text: "Grand Piano AUv3 2"},
+  { href: "/03", text: "4Waves Synthesizer"},
+  { href: "/04", text: "XYZ Synth"},
+  { href: "/05", text: "MicroGrandPiano"},
+  { href: "/06", text: "Bluetooth MIDI Keyboard"},
+  { href: "/07", text: "Bluetooth MIDI Controller"},
+  { href: "/08", text: "Bluetooth MIDI Pads"},
+  { href: "/09", text: "Bluetooth MIDI Motion"},
+  { href: "/10", text: "Grand Piano Auv3"},
+  { href: "/11", text: "Random Ocean"},
+  { href: "/AppsPrivacyPolicy", text: "Apps Privacy Policy"},
+  { href: "/Privacy-policy", text: "Privacy policy"},
+  { href: "/Contact", text: "Contact"},
+  { href: "/10", text: ""},
+  { href: "/10", text: ""},
+  { href: "/10", text: ""},
+  { href: "/10", text: ""}
+
+];
+
+---
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Sitio</title>
+  <style>
+    /* Estilos críticos */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    main {
+      flex: 1; /* Empuja el footer hacia abajo */
+      padding-top: 80px; /* Compensa el header fijo */
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgb(25, 79, 131);
+      z-index: 1000;
+    }
+    footer {
+      background: rgb(25, 79, 131);
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: auto; /* Fuerza al footer a estar abajo */
+    }
+    <style>
+  /* Estilos responsive para el menú */
+  .hamburger-menu a {
+    font-size: clamp(0.4rem, 1vw, 0.5rem); /* Mobile-first */
+    color: #333;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Ajustes para desktop */
+  @media (min-width: 768px) {
+    .hamburger-menu a {
+      font-size: 0.5rem;
+    }
+  }
+</style>
+
+
+ 
+
+  
+  <header style="height: 7%; display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
+    
+    <h2 style="display: flex; align-items: center; gap: 1rem; flex: 1; justify-content: space-between; padding: 5%">
+      <span><HamburgerMenu links={navLinks}
+        fontClass="text-sh" /></span>
+      <span><a  href="../" style="padding: 1rem; color:white">PBLSound Apps</a></span>
+    </h2>
+ 
+  </header>
+
+  <main>
+    <slot />
+    <CookieBanner />
+    <footer style="height: 7%; display: flex: 1; justify-content: space-between; align-items: center; padding: 1rem;">
+      <p style="padding: 1rem; color:white">© 2020-2025 PBLSound. All rigths reserved.</p>
+      <nav>
+        <a href="/Privacy-policy" style="padding: 1rem; color:white">Privacy policy</a> |
+        <a href="/Contact" style="padding: 1rem; color:white">Contact</a>
+      </nav>
+    </footer>
+  </main>
+
+  <!-- Footer añadido aquí -->
+  
+
+  <!-- Scripts (como el de Google Analytics) -->
+  {import.meta.env.PROD && (
+    <script 
+      type="text/partytown" 
+      async 
+      src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_ID}`}
+    ></script>
+  )}
+</body>
+</html>

@@ -1,0 +1,239 @@
+---
+//import Welcome from '../components/Welcome.astro';
+//import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Navigation from '../components/ResponsiveMenu.astro';
+
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+
+
+
+
+	
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Astro</title>
+</head>
+<body>
+
+ 
+   
+
+<Layout>
+  <!-- Tu contenido específico de la página de inicio aquí -->
+  
+
+ <header>
+
+        <!-- Título principal -->
+        <h1>XYZ Synth</h1>
+    </header>
+
+
+
+  
+
+</html>
+    <main>
+        <!-- Sección de la imagen -->
+        <section>
+            <h2></h2>
+            
+
+<img 
+  src="/images/XYZSynthpromo.jpg" 
+  alt="Descripción" 
+  class="responsive-image" 
+/>
+
+<style>
+  .responsive-image {
+    width: 100%;
+    max-width: 800px; /* Tamaño máximo en desktop */
+    height: auto;
+  }
+
+  /* Para móviles */
+  @media (max-width: 768px) {
+    .responsive-image {
+      max-width: 100%;
+    }
+  }
+</style>
+        </section>
+
+        <!-- Sección del video -->
+        <section>
+            <h2></h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe 
+                    src="https://www.youtube.com/embed/GPabPmXZs0s?" 
+                    title="Video de Astro" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+        <section>
+          <h2></h2>
+          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+              <iframe 
+                  src="https://www.youtube.com/embed/7ZmI6tSX_5I?" 
+                  title="Video de Astro" 
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                  allowfullscreen>
+              </iframe>
+          </div>
+      </section>
+        <!-- Sección de texto -->
+        <section>
+            <h2>XYZ Synth</h2>
+            <p>
+              Accelerometer Synthesizer and Bluetooth MIDI Controller.
+            </p>
+            <p>    Make music never has been so easy, and fun with so pro features.
+              XYZ Synth is a full synthesizer controlled by motion. Each parameter of the synthesizer can be controlled by x, y and z axes getting you a precise control of the sound and generating incredibles melodies.
+              XYZ Synth is a new music instrument that allows you create music as never before.
+            </p>
+            <p> XYZ Synth can be used as a Bluetooth MIDI controller too, allow you to control up to 72 parameters from the accelerometer values. Connect, for example, XYZ Synth from an iPhone to your favourite iPad DAW or instrument Bluetooth MIDI compatible and control them with the movement.
+            </p>
+            <p> -X, Y, Z representation. </p>
+            <p> -X controls page. </p>
+            <p> -Y controls page. </p>
+            <p> -Z controls page. </p>
+            <p> -Two Synthesizers. </p>
+            <p> -Parameters: </p>
+            <p> -Base Oscillator. </p>
+              -Oscillstor 5th.
+              -Sub Oscillator. 
+              -Noiser.
+              -Filter Cutoff.
+              -Envelop Atack.
+              -Envelop Deacay.
+              -Envelope sustain.
+              -Freqiuency Modulator.
+              -Lfo Amount.
+              -Lfo Rate.
+              -Dealy feedback. </p>
+              <p>-Base Oscillator2. </p>
+              <p> -Oscillstor 5th2.
+              -Sub Oscillator2.
+              -Noiser2.
+              -Filter Cutoff2.
+              -Envelop Atack2.
+              -Envelop Deacay2.
+              -Envelope sustain2.
+              -Freqiuency Modulator2.
+              -Lfo Amount2.
+              -Lfo Rate2.
+              -Dealy feedback2. </p>
+              <p>-16 steps Sequencer. </p>
+              <p>-16 steps Arpeggiator. </p>
+              <p>-Settings: </p>
+              <p>-Transport. </p>
+              -Tempo.
+              -Delay tempo.
+              -Start/Stop Button.
+              <p> -Reset unselected parameters
+              button. </p>
+              <p>-First steps tutorial. </p>
+              <p>-Background audio. </p>
+              <p>-Bluetooth MIDI Controller: </p>
+              <p>-X Controller cc 20-43.
+              -Y Controller cc 44-67.
+              -Z Controller cc 68-91. </p>  </p>
+
+ </section>
+
+ <section>
+						<a 
+  href="https://apps.apple.com/es/app/xyz-synth/id1505564934" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="app-store-badge"
+>
+  <img 
+    src="/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+    alt="Download on the App Store" 
+    class="responsive-image" 
+  />
+</a>
+
+<style>
+  .app-store-badge {
+    display: inline-block; /* Necesario para que funcione max-width */
+  }
+
+  .img {
+    width: auto; /* Mantiene la proporción original */
+    height: auto;
+    max-width: 180px; /* Tamaño ideal para desktop */
+  }
+
+  /* Para móviles */
+  @media (max-width: 768px) {
+    .img {
+      max-width: 135px; /* Un 25% más pequeño en móviles */
+    }
+  }
+
+  /* Para tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .img{
+      max-width: 160px;
+    }
+  }
+</style>
+        </section>
+        <section>
+         
+          <a  href="../AppsPrivacyPolicy" style="padding: 1rem; color:rgb(0, 0, 0)">App Privacy Policy</a>
+          <a  href="../Contact" style="padding: 1rem; color:rgb(0, 0, 0)">Support</a>
+        </section>
+				
+    </main>
+
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            border-bottom: 3px solid #0984e3;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin: 40px 0;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        img {
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</body>
+</Layout>
+</html>

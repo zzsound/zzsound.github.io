@@ -1,0 +1,257 @@
+---
+//import Welcome from '../components/Welcome.astro';
+//import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Navigation from '../components/ResponsiveMenu.astro';
+
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+
+
+
+
+	
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Astro</title>
+</head>
+<body>
+
+ 
+   
+<Layout>
+  <!-- Tu contenido específico de la página de inicio aquí -->
+  
+
+
+ <header>
+
+        <!-- Título principal -->
+        <h1>4Waves Synth AUv3</h1>
+    </header>
+
+
+
+  
+
+</html>
+    <main>
+        <!-- Sección de la imagen -->
+        <section>
+            <h2></h2>
+            
+
+<img 
+  src="/images/4Waves3.jpg" 
+  alt="Descripción" 
+  class="responsive-image" 
+/>
+
+<style>
+  .responsive-image {
+    width: 100%;
+    max-width: 800px; /* Tamaño máximo en desktop */
+    height: auto;
+  }
+
+  /* Para móviles */
+  @media (max-width: 768px) {
+    .responsive-image {
+      max-width: 100%;
+    }
+  }
+</style>
+        </section>
+
+        <!-- Sección del video -->
+        <section>
+            <h2></h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe 
+                    src="https://www.youtube.com/embed/FfGJL6z6uos?" 
+                    title="Video de Astro" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Sección de texto -->
+        <section>
+            <h2>4Waves Synth AUv3</h2>
+            <p>
+              4Waves Synth AUv3 is an easy to use synthesizer with a powerful sound.
+              Its characteristics make it perfect for learning about oscillators, envelopes, filters and effects; for live music and in general if you need a powerful sound easily and quickly.
+              It can be used as standalone and as AUv3 plugin in DAWs apps.
+              ​</p>
+              <p> Parameters:</p>
+                <p> Osc1:</p>
+                  <p> -Saw 1
+                    -Saw 2
+                       -Detune1
+                         -Detune2
+                          -Suboscillator
+                            -Volume</p>
+                              <p> Osc2:</p>
+                                <p>-Square
+                                  -PWM
+                                    -Detune3
+                                      -Detune4
+                                        -Suboscillator
+                                          -Volume</p>
+                                            <p>ADSR1:</p>
+                                              <p>-Attack
+                                                -Decay
+                                                  -Sustain
+                                                    -Release</p>
+                                                      <p>ADSR2:</p>
+                                                        <p>-Attack
+                                                          -Decay
+                                                            -Sustain
+                                                              -Release</p>
+                                                                <p>Filter1:</p>
+                                                                  <p>-Frequency
+                                                                    -Resonance
+                                                                      -Mix</p>
+                                                                        <p>Filter2:</p>
+                                                                          <p>-Frequency</p>
+                                                                            -Resonance
+                                                                              -Mix</p>
+                                                                                <p>Effects:</p>
+                                                                                  <p>-Filter:</p>
+                                                                                    <p> -Frequency
+                                                                                      -Resonance
+                                                                                        -Mix</p>
+                                                                                          <p>-Tremolo:</p>
+                                                                                          <p>-Deeph
+                                                                                          -Rate</p>
+                                                                                          <p>-Chorus:</p>
+                                                                                          <p>-Deeph
+                                                                                          -Mix</p>
+                                                                                          <p> -Feedback
+                                                                                          -Frequency</p>
+                                                                                          <p>-Phaser:</p>
+                                                                                          <p> -Deeph
+                                                                                          -LFO BPM
+                                                                                          -Feedback
+                                                                                           -Frequency</p>
+                                                                                          <p>-Flanger:</p>
+                                                                                          <p> -Deeph
+                                                                                          -Mix
+                                                                                          -Feedback
+                                                                                          -Frequency</p>
+                                                                                          <p>-Delay:</p>
+                                                                                          <p>-Time
+                                                                                           -Mix
+                                                                                           -Feedback
+                                                                                          -Filter</p>
+                                                                                          <p>-Reverb:</p>
+                                                                                          <p>-Size
+                                                                                          -Mix</p>
+               
+                                                                                          <p>Other Features:</p>
+                                                                                          <p>-Low CPU load.</p>
+                                                                                          <p>-Presets Module.</p>
+                                                                                          <p>-100 factory presets.</p>
+                                                                                          <p>-MIDI learn</p>
+                                                                                          <p>-Bluetooth LE MIDI</p>
+                                                                                          <p> -Keyboard.</p>
+                                                                                          <p>-Mod Wheels.</p>
+                                                                                          <p>-Panic.</p>
+                                                                                          <p> -Parameters values window.</p>
+                                                                                          <p>-Standalone and AUv3.</p>
+            </p>
+
+ </section>
+
+ <section>
+						<a 
+  href="https://apps.apple.com/app/id1545450649" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="app-store-badge"
+>
+  <img 
+    src="/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+    alt="Download on the App Store" 
+    class="responsive-image" 
+  />
+</a>
+
+<style>
+  .app-store-badge {
+    display: inline-block; /* Necesario para que funcione max-width */
+  }
+
+  .img {
+    width: auto; /* Mantiene la proporción original */
+    height: auto;
+    max-width: 180px; /* Tamaño ideal para desktop */
+  }
+
+  /* Para móviles */
+  @media (max-width: 768px) {
+    .img {
+      max-width: 135px; /* Un 25% más pequeño en móviles */
+    }
+  }
+
+  /* Para tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .img{
+      max-width: 160px;
+    }
+  }
+</style>
+        </section>
+
+				<section>
+         
+          <a  href="../AppsPrivacyPolicy" style="padding: 1rem; color:rgb(0, 0, 0)">App Privacy Policy</a>
+          <a  href="../Contact" style="padding: 1rem; color:rgb(0, 0, 0)">Support</a>
+        </section>
+    </main>
+
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            border-bottom: 3px solid #0984e3;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin: 40px 0;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        img {
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</body>
+</Layout>
+</html>

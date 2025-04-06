@@ -1,0 +1,63 @@
+---
+// src/components/CookieBanner.astro
+---
+
+<div class="cookie-banner" id="cookie-banner" style="display: none;">
+  <div class="cookie-content">
+    <p>Usamos cookies esenciales y de análisis para mejorar tu experiencia. Puedes aceptar o rechazar las cookies no esenciales.</p>
+    <div class="cookie-buttons">
+      <button id="reject-cookies">Solo necesarias</button>
+      <button id="accept-cookies">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Configura tu ID de Google Analytics
+  const GA_MEASUREMENT_ID = 'G-XXXXXXX';
+
+  const initGA = () => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { 
+      anonymize_ip: true,
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  };
+
+  const checkConsent = () => {
+    const consentCookie = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('cookie-consent='));
+    
+    if (!consentCookie) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    } else if (consentCookie.includes('accepted')) {
+      initGA();
+    }
+  };
+
+  checkConsent();
+  document.addEventListener('astro:after-swap', checkConsent);
+
+  document.getElementById('accept-cookies')?.addEventListener('click', () => {
+    document.cookie = 'cookie-consent=accepted; path=/; max-age=31536000';
+    document.getElementById('cookie-banner').style.display = 'none';
+    initGA();
+  });
+
+  document.getElementById('reject-cookies')?.addEventListener('click', () => {
+    document.cookie = 'cookie-consent=rejected; path=/; max-age=31536000';
+    document.getElementById('cookie-banner').style.display = 'none';
+    
+    // Eliminar cookies de GA
+    ['_ga', `_ga_${GA_MEASUREMENT_ID}`].forEach(cookie => {
+      document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${location.hostname};`;
+    });
+  });
+</script>
+
+<style>
+  /* Mantén tus estilos anteriores */
+</style>

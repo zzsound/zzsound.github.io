@@ -1,0 +1,180 @@
+---
+// src/components/HamburgerMenu.astro
+const { links = [] } = Astro.props;
+---
+
+<button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menú">
+  <span class="hamburger-icon"></span>
+</button>
+
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<nav id="mobile-menu" class="mobile-menu">
+  <ul>
+    {links.map((link: { href: string | URL | null | undefined; text: unknown; }) => (
+      <li>
+        <a 
+  href={link.href} 
+  class="menu-link"
+  style={{
+    color: Astro.url.pathname === link.href ? 'var(white))' : 'white', /* Blanco por defecto */
+    fontWeight: Astro.url.pathname === link.href ? '600' : '400'
+  }}
+>
+  {link.text}
+</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  /* Estilos del botón */
+  .hamburger-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px;
+  }
+
+  .hamburger-icon {
+    display: block;
+    position: relative;
+    width: 26px;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-icon::before {
+    transform: translateY(-8px);
+  }
+
+  .hamburger-icon::after {
+    transform: translateY(8px);
+  }
+
+  /* Estado activo */
+  .hamburger-btn.active .hamburger-icon {
+    background: transparent;
+  }
+
+  .hamburger-btn.active .hamburger-icon::before {
+    transform: rotate(45deg);
+  }
+
+  .hamburger-btn.active .hamburger-icon::after {
+    transform: rotate(-45deg);
+  }
+  .mobile-menu ul{
+    list-style-type: none;
+  }
+  /* Menú desplegable */
+  .mobile-menu {
+    
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgb(25, 79, 131);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.active {
+    left: 0;
+  }
+
+  /* Overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Enlaces */
+  .menu-link {
+    display: block;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .menu-link:hover {
+    background: #99a3c0;
+  }
+</style>
+
+<script is:inline>
+  // Seleccionar elementos
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('menu-overlay');
+
+  // Función para alternar menú
+  function toggleMenu() {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+  }
+
+  // Función para cerrar menú
+  function closeMenu() {
+    hamburgerBtn.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Event listeners
+  hamburgerBtn.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  // Cerrar menú al hacer clic en enlaces
+  document.querySelectorAll('.menu-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Cerrar con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+</script>

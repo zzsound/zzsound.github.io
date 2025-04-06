@@ -1,0 +1,71 @@
+---
+// src/components/MobileMenu.astro
+const { links = [] } = Astro.props;
+---
+
+<button id="menu-button" class="mobile-menu-button">☰ Menú</button>
+
+<div id="mobile-menu" class="mobile-menu">
+  <nav>
+    <ul>
+      {links.map((link: { href: string | URL | null | undefined; text: unknown; }) => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  .mobile-menu-button {
+    display: none; /* Oculto en desktop */
+    background: #1e40af;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .mobile-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-menu nav li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .mobile-menu nav li a:hover {
+    background: #f0f0f0;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-menu-button {
+      display: block;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.getElementById('menu-button').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+</script>

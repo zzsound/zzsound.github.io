@@ -1,0 +1,89 @@
+---
+// src/pages/privacy-policy.astro
+import Layout from '../layouts/Layout.astro';
+//import RevealEmail from '../components/EmailCaptcha.astro';
+---
+
+<Layout title="Privacy Policy">
+  <main class="privacy-policy">
+    <h1>Privacy Policy</h1>
+    <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
+
+    <section>
+      <h2>1. Introduction</h2>
+      <p>
+        PBLSound Music Apps ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website or mobile applications.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Data We Collect</h2>
+      <p>We may collect the following information:</p>
+      <ul>
+        <li><strong>Personal Data:</strong> Name, email address (if voluntarily provided).</li>
+        <li><strong>Usage Data:</strong> Pages visited, interactions with our apps.</li>
+        <li><strong>Cookies:</strong> We use cookies to enhance your experience (you can disable them in your browser settings).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How We Use Your Data</h2>
+      <p>Your data helps us to:</p>
+      <ul>
+        <li>Improve our apps and services.</li>
+        <li>Respond to your inquiries.</li>
+        <li>Analyze trends via Google Analytics (anonymous data only).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Data Sharing</h2>
+      <p>We do not sell your data. We may share anonymized data with:</p>
+      <ul>
+        <li>Service providers (e.g., hosting, analytics).</li>
+        <li>Legal authorities if required by law.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Your Rights</h2>
+      <p>You can:</p>
+      <ul>
+        <li>Request access to your personal data.</li>
+        <li>Ask for corrections or deletion.</li>
+        <li>Opt-out of marketing communications.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Contact Us</h2>
+      <p>
+        For questions about this policy, email us at
+      <!--     <RevealEmail 
+        client:load /> -->
+        .
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    line-height: 1.6;
+  }
+  .privacy-policy h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .privacy-policy h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #333;
+  }
+  .privacy-policy ul {
+    padding-left: 1.5rem;
+  }
+</style>

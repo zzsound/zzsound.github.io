@@ -1,0 +1,115 @@
+---
+// src/components/ResponsiveMenu.astro
+const { links = [] } = Astro.props;
+---
+
+<button id="menu-button" class="menu-button">☰ Menú</button>
+
+<div id="dropdown-menu" class="dropdown-menu">
+  <nav>
+    <ul>
+      {links.map((link: { href: string | URL | null | undefined; text: unknown; }) => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  /* Estilos base para todos los dispositivos */
+  .menu-button {
+    background: #1e40af;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+
+  .dropdown-menu {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .dropdown-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdown-menu nav li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .dropdown-menu nav li a:hover {
+    background: #f0f0f0;
+  }
+
+  /* Comportamiento en desktop */
+  @media (min-width: 769px) {
+    .menu-button {
+      display: none; /* Oculta el botón en desktop */
+    }
+    
+    .dropdown-menu {
+      display: block !important; /* Fuerza a mostrar el menú */
+      position: static;
+      box-shadow: none;
+      background: transparent;
+    }
+    
+    .dropdown-menu nav ul {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .dropdown-menu nav li a {
+      padding: 5px 10px;
+      color: #1e40af;
+    }
+  }
+
+  /* Comportamiento en mobile */
+  @media (max-width: 768px) {
+    .dropdown-menu {
+      position: absolute;
+      width: 200px;
+      right: 20px;
+      display: none;
+      z-index: 1000;
+    }
+    
+    .dropdown-menu.open {
+      display: block;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Control del menú
+  const menuButton = document.getElementById('menu-button');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  
+  if (menuButton && dropdownMenu) {
+    menuButton.addEventListener('click', function() {
+      dropdownMenu.classList.toggle('open');
+    });
+    
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function(event) {
+      if (!dropdownMenu.contains(event.target) && event.target !== menuButton) {
+        dropdownMenu.classList.remove('open');
+      }
+    });
+  }
+</script>

@@ -1,0 +1,10 @@
+---
+// src/components/BaseLink.astro
+const { href } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const normalizedHref = `${base}${href.replace(/^\//, '')}`.replace(/\/+/g, '/');
+---
+
+<a href={normalizedHref}>
+  <slot />
+</a>
