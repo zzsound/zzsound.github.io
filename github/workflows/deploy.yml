@@ -28,3 +28,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
           publish_dir: ./dist  # Carpeta a desplegar
+
+
+          #prueva
