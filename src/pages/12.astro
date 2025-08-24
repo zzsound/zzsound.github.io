@@ -1,7 +1,209 @@
----
-// src/pages/pagina-antigua.astro
 
-//<script is:inline>
-   // window.location.href = '';
-//  </script>
 ---
+//import Welcome from '../components/Welcome.astro';
+//import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Navigation from '../components/ResponsiveMenu.astro';
+
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+
+import { Image } from 'astro:assets';
+//import AppStoreImage from '../images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
+//import BMCPImaage from '../images/IMG_0012.jpeg';
+---
+
+
+
+
+
+
+
+	
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Astro</title>
+</head>
+<body>
+
+ 
+    
+  <Layout>
+
+  <!-- Tu contenido específico de la página de inicio aquí -->
+  
+<header>
+
+
+        <!-- Título principal -->
+        <h1>Bluetooth MIDI Controller Pro</h1>
+    </header>
+
+
+
+  
+
+</html>
+    <main>
+        <!-- Sección de la imagen -->
+        <section>
+            <h2></h2>
+            
+
+            <section>
+              <h2></h2>
+              
+                <img 
+                      src="IMG_0012.jpeg" 
+                      alt="Descripción" 
+                      class="responsive-image" 
+                  />
+             
+            
+              <style>
+                  .responsive-image {
+                      width: 100%;
+                      max-width: 800px;
+                      height: auto;
+                      cursor: pointer;
+                      transition: transform 0.3s ease;
+                  }
+            
+                  .responsive-image:hover {
+                      transform: scale(1.02);
+                  }
+            
+                  @media (max-width: 768px) {
+                      .responsive-image {
+                          max-width: 100%;
+                      }
+                  }
+              </style>
+            </section>  
+
+        <!-- Sección del video -->
+        <section>
+            <h2></h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe 
+                    src="https://www.youtube.com/embed/X3Mtg8neIVg?Q" 
+                    title="Video de Astro" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Sección de texto -->
+        <section>
+            <h2>Bluetooth MIDI Controller Pro</h2>
+            <p>
+                If you liked Bluetooth MIDIController, Bluetooth MIDI Pads and Bluetooth MIDI Keyboard you will love Bluetooth MIDI Controller Pro. All the functionality from the three apps in only one and more.</p>
+								<p>
+Do you need a NanoKontrol like Bluetooth controller but you don't have it? Here you are BMC Pro:
+Connect and control every Bluetooth MIDI Host like soft instruments, DAWs, Hardware music devices, Mapping apps, lights... </p>
+<p>
+Features:</p>
+<p>-MIDI Keyboard full range with ajustable size.</p>
+<p>-MIDI Pads Matrix full range.</p>
+<p>-MIDI Knobs: 32 on iOS, 128 on iPadOS.</p>
+<p>-MIDI Faders: 32 on iOS, 64 on iPadOS.</p>
+<p>-The app sends MIDI data between apps inside de same device (no Bluetooth needed).</p>
+<p>-Help View.</p>
+<p>-The app keeps its state after restart the app. </p>
+<p>-No app configuration needed: only connect with the Bluetooth MIDI Host, bind your parameters with the controls via MIDI learn and play the pads or the keyboard. </p>
+            </p>
+
+ </section>
+  
+ <section>
+						<a 
+  href="https://apps.apple.com/app/bluetooth-midi-controller-pro/id6449652509" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="app-store-badge"
+>
+<img 
+src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+alt="Descripción" 
+class="responsive-image" 
+/>
+</a>
+<style>
+  .app-store-badge {
+    display: inline-block; /* Necesario para que funcione max-width */
+  }
+  .responsive-image {
+      width: auto;
+      max-width: 180px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+  }
+
+  .responsive-image:hover {
+      transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+      .responsive-image {
+          max-width: 135px;
+      }
+  }
+  @media @media (min-width: 769px) and (max-width: 1024px) {
+      .responsive-image {
+        max-width: 160px;
+      }
+  }
+</style>
+
+        </section>
+
+				<section>
+          
+          <a  href="../AppsPrivacyPolicy" style="padding: 1rem; color:rgb(0, 0, 0)">App Privacy Policy</a>
+          <a  href="../Contact" style="padding: 1rem; color:rgb(0, 0, 0)">Support</a>
+        </section>
+    </main>
+
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            border-bottom: 3px solid #0984e3;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin: 40px 0;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        img {
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</body>
+</Layout>
+</html>
