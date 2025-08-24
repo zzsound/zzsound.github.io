@@ -67,6 +67,24 @@ import { Image } from 'astro:assets';
              
             
               <style>
+                 /* Contenedor de video adaptable */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
                   .responsive-image {
                       width: 100%;
                       max-width: 800px;
@@ -87,6 +105,21 @@ import { Image } from 'astro:assets';
               </style>
             </section>  
 
+
+            <!-- Sección del video local -->
+            <section>
+                <h2>Demo del Producto</h2>
+                <p class="resolution-info">El video se adaptará automáticamente a su relación de aspecto nativa</p>
+                
+                <div class="video-container">
+                    <video controls poster="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                        <!-- Reemplaza con la ruta correcta a tu video -->
+                        <source src="../Videos/Mi_película6.mp4" type="video/mp4">
+                        <source src="../Mi_película6.webm" type="video/webm">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </section>
         <!-- Sección del video -->
         <section>
             <h2></h2>
