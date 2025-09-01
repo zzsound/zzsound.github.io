@@ -1,0 +1,60 @@
+---
+// src/components/SecureEmail.astro
+interface Props {
+  email: string;
+}
+
+const { email } = Astro.props;
+// Codificar el email en base64 para que no sea legible en el HTML
+const encodedEmail = Buffer.from(email).toString('base64');
+---
+
+<script>
+// Este script solo se ejecuta en el cliente
+document.addEventListener('DOMContentLoaded', function() {
+    const emailElements = document.querySelectorAll('[data-encoded-email]');
+    
+    emailElements.forEach(element => {
+        try {
+            const encoded = element.getAttribute('data-encoded-email');
+            const decoded = atob(encoded); // Decodificar base64
+            const emailText = decoded;
+            const mailtoLink = 'mailto:' + decoded;
+            
+            // Si es un enlace, establecer href
+            if (element.tagName === 'A') {
+                element.href = mailtoLink;
+            }
+            
+            // Establecer el texto
+            element.textContent = emailText;
+            
+            // Remover el atributo temporal
+            element.removeAttribute('data-encoded-email');
+            
+        } catch (error) {
+            console.error('Error decoding email:', error);
+            element.textContent = 'Email no disponible';
+        }
+    });
+});
+</script>
+
+<!-- El elemento que contendrá el email -->
+<a 
+    data-encoded-email={encodedEmail}
+    class="email-link"
+    style="color: blue; text-decoration: underline;"
+>
+    Cargando email...
+</a>
+
+<style>
+.email-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+.email-link:hover {
+    text-decoration: underline;
+}
+</style>
